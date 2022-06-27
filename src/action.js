@@ -85,7 +85,7 @@ export default class WebExtAction {
       artifactsDir: this.options.artifactsDir,
       selfHosted: this.options.channel == "unlisted",
       output: this.options.verbose ? "text" : "none",
-      ignoreFiles: [".git", ".github", "web-ext-artifacts"],
+      ignoreFiles: JSON.parse(this.options.ignoreFiles),
     }, {
       shouldExitProgram: false
     });
@@ -117,7 +117,7 @@ export default class WebExtAction {
       filename: this.options.extensionFilenameTemplate ?
         this.options.extensionFilenameTemplate : undefined,
       overwriteDest: true,
-      ignoreFiles: [".git", ".github", "web-ext-artifacts"],
+      ignoreFiles: JSON.parse(this.options.ignoreFiles),
     }, {
       showReadyMessage: false,
       shouldExitProgram: false
@@ -156,7 +156,8 @@ export default class WebExtAction {
         apiSecret: this.options.apiSecret,
         apiUrlPrefix: this.options.apiUrlPrefix,
         timeout: this.options.timeout,
-        verbose: this.options.verbose
+        verbose: this.options.verbose,
+        ignoreFiles: JSON.parse(this.options.ignoreFiles),
       });
     } catch (e) {
       if (
