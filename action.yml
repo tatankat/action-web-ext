@@ -20,6 +20,10 @@ inputs:
     description: "More debugging fore certain steps"
     required: false
     default: false
+  ignoreFiles:
+    description: "JSON array with files to ignore"
+    required: false
+    default: "[]"
   channel:
     description: "[lint+sign] The target channel"
     required: false
